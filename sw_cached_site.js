@@ -2,12 +2,12 @@ const cacheName = 'v2';
 
 // Call Install Event
 self.addEventListener('install', e => {
-  console.log('Service Worker: Installed');
+  console.log('Service Worker is Installed');
 });
 
 // Call Activate Event
 self.addEventListener('activate', e => {
-  console.log('Service Worker: Activated');
+  console.log('Service Worker is Activated');
   // Remove unwanted caches
   e.waitUntil(
     caches.keys().then(cacheNames => {
@@ -25,7 +25,7 @@ self.addEventListener('activate', e => {
 
 // Call Fetch Event
 self.addEventListener('fetch', e => {
-  console.log('Service Worker: Fetching');
+  console.log('Service Worker is Fetching content');
   e.respondWith(
     fetch(e.request)
       .then(res => {
