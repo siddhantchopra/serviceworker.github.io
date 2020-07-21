@@ -36,3 +36,10 @@ nav a {
 nav .current > a {
   color: yellow;
 }
+
+@media screen and (max-width: 400px) {
+  .card{
+    width: 270px !important;
+  }
+}
+
