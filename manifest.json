@@ -1,0 +1,17 @@
+{
+    "name": "Siddhant Github App",
+    "short_name": "App",
+    "display": "standalone",
+    "start_url": "/index.html",
+    "icons": [
+      {
+        "src": "/icons-512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "orientation": "portrait-primary",
+    "theme_color": "#bada55",
+    "background_color": "#eeeeee",
+    "prefer_related_applications": false
+  }
