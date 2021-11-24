@@ -33,6 +33,9 @@ const APP = {
           ev.preventDefault();
           // Stash the event so it can be triggered later.
           APP.deferredInstall = ev;
+          if (APP.deferredInstall) {
+            document.getElementById('btnInstall').style.display = 'block'
+          }
           console.log('saved the install event');
           // Update UI notify the user they can install the PWA
           // if you want here...
@@ -49,12 +52,22 @@ const APP = {
         APP.deferredInstall.userChoice.then((choice) => {
           if (choice.outcome == 'accepted') {
             //they installed
+            localStorage.setItem('pwaInstalled', 'true')
+            document.getElementById('btnInstall').style.display = 'none'
             console.log('installed');
           } else {
+            localStorage.setItem('pwaInstalled', 'false')
+            document.getElementById('btnInstall').style.display = 'block'
             console.log('cancel');
           }
         });
+      } else {
+        localStorage.setItem('pwaInstalled', 'true')
+        document.getElementById('btnInstall').style.display = 'none'
       }
     },
   };
   document.addEventListener('DOMContentLoaded', APP.init);
+  if(localStorage.getItem('pwaInstalled') === 'true') {
+    document.getElementById('btnInstall').style.display = 'none'
+  }
